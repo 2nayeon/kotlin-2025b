@@ -1,4 +1,4 @@
-#week02 - Kotlin Basices
+# week02 - Kotlin Basices
 
 ## Learning Object
 - Understand basic Kotlin syntax
