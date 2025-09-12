@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.kotlinbasics.ui.theme.KotlinBasicsTheme
+import java.security.KeyStore.TrustedCertificateEntry
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,16 +32,37 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun week02Variables(){
-    println("Week02 Variables")
+fun week02Functions(){
+    // println("Week02 Functions")
 
-    val courseName="Mobile Programming"
+    // fun greet(name: String) = "Hello, $name!"
+
+    // println(greet(name: "Android Developer"))
+}
+
+fun week02Variables(){
+    // println("Week02 Variables")
+
+    // val courseName="Mobile Programming"
     // courseName="IoT Programming" -> val는 상수선언이라 변경 못함
 
-    var week=1
-    week=2
-    println("Course: $courseName")
-    println("Week: $week")
+    // var week=1
+    // week=2
+    // println("Course: $courseName")
+    // println("Week: $week")
+
+    println("== Kotlin Variables ==")
+
+    // val name: String="Android"
+    val name="Android"
+    var version=8.1
+    println("Hello $name $version")
+
+    val age: Int=22
+    val height: Double=177.7
+    val isStudent: Boolean=true
+
+    println("Age: $age, Height: $height, Student: $isStudent")
 }
 
 @Composable
