@@ -73,18 +73,28 @@ private fun week03Classes() {
     person1.introduce()
     person1.birthday()
 
-    class Animal(var species: String){
+    open class Animal(var species: String){
         var weight: Double = 0.0
         constructor(species: String, weight: Double) : this(species){
             this.weight = weight
             Log.d("KotlinWeek03", "$species 의 무게: $weight kg")
         }
-        fun makeSound(){
+        open fun makeSound(){
             Log.d("KotlinWeek03", "$species 가 소리를 냅니다.")
         }
     }
     val puppy = Animal("강아지", 6.5) // 이 시점에서 생성자 실행
     puppy.makeSound()
+
+    // 상속
+    // 클래스 앞에 final -> 자식을 가질 수 없음. 코틀린은 final 없음. open이라고 사용
+    class Dog(species: String, weight: Double, val breed: String) : Animal(species, weight){
+        override fun makeSound(){
+            Log.d("KotlinWeek03", "$breed($species) 가 멍멍 짖습니다!")
+        }
+    }
+    val dog = Dog(species = "개", weight = 12.5, breed = "골든 리트리버")
+    dog.makeSound()
 
 
 //    class Student {
