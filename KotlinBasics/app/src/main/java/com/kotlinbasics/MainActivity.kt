@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.kotlinbasics.ui.theme.KotlinBasicsTheme
-import java.security.KeyStore.TrustedCertificateEntry
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,24 +27,46 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        week02Variables()
-        week02Functions()
+        // week02Variables()
+        // week02Functions()
+        week03Classes()
     }
 }
 
-fun week02Functions(){
-    // println("Week02 Functions")
-    // fun greet(name: String) = "Hello, $name!"
-    // println(greet(name: "Android Developer"))
+private fun week03Classes() {
+    println("== Kotlin Classes ==")
 
-    println("==Kotlin Funtions==")
-    fun greet(name: String): String{
+    class Student {
+        var name: String = ""
+        var age: Int = 0
+        fun introduce() {
+            println("Hi, I'm $name and I'm $age years old.")
+        }
+    }
+
+    val student = Student()
+    student.name = "leenayeon"
+    student.age = 26
+    student.introduce()
+
+    data class Person(val name: String, val age: Int)
+
+    val person1 = Person(name = "Lee", age = 24)
+    val person2 = Person(name = "Lee", age = 24)
+    println("Person1: $person1")
+    println("Equal?: ${person1 == person2}")
+}
+
+private fun week02Functions() {
+    println("==Kotlin Functions==")
+
+    fun greet(name: String): String {
         return "Hello, $name"
     }
 
-    fun add(a: Int, b:Int) = a+b
+    fun add(a: Int, b: Int) = a + b
 
-    fun introduce(name: String, age: Int=19){
+    fun introduce(name: String, age: Int = 19) {
         println("My name is $name and I'm $age years old")
     }
 
@@ -55,29 +76,18 @@ fun week02Functions(){
     introduce("Kim", 29)
 }
 
-fun week02Variables(){
-    // println("Week02 Variables")
+private fun week02Variables() {
+    println("Week02 Variables")
 
-    // val courseName="Mobile Programming"
-    // courseName="IoT Programming" -> val는 상수선언이라 변경 못함
+    val name = "Android"
+    var version = 8.1
+    println("Hello $name $version")
 
-    // var week=1
-    // week=2
-    // println("Course: $courseName")
-    // println("Week: $week")
+    val age: Int = 22
+    val height: Double = 177.7
+    val isStudent: Boolean = true
 
-//    println("== Kotlin Variables ==")
-//
-//    // val name: String="Android"
-//    val name="Android"
-//    var version=8.1
-//    println("Hello $name $version")
-//
-//    val age: Int=22
-//    val height: Double=177.7
-//    val isStudent: Boolean=true
-//
-//    println("Age: $age, Height: $height, Student: $isStudent")
+    println("Age: $age, Height: $height, Student: $isStudent")
 }
 
 @Composable
