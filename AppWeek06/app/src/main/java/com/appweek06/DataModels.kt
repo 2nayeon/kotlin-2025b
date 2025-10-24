@@ -1,5 +1,7 @@
 package com.appweek06
 
+
+import android.graphics.Color
 import java.util.*
 
 data class Student(
@@ -7,6 +9,7 @@ data class Student(
     val id: String = UUID.randomUUID().toString(),
     val addedDate: Date = Date()
 )
+
 
 data class CartItem(
     val name: String,
@@ -22,7 +25,36 @@ data class CartItem(
     }
 }
 
+data class Task(
+    // 7개의 필드
+    val title: String,
+    var description: String = "",
+    var isCompleted: Boolean = false,
+    val priority : TaskPriority,
+    val dueDate: Date? = null,
+    val id: String = UUID.randomUUID().toString(),
+    val createDate: Date = Date()
+){
+    override fun toString(): String {
+        val status = if(isCompleted) "V" else "O"
+        val priorityIcon = when(priority){
+            TaskPriority.HIGH -> "!!!"
+            TaskPriority.MEDIUM -> "!!"
+            TaskPriority.LOW -> "!"
+        }
+        return "$status $priorityIcon $title"
+    }
+}
+
 enum class AppMode(val displayName: String) {
     STUDENT_LIST("Student List"),
     SHOPPING_CART("Shopping Cart"),
+    TASK_MANAGER("Task Manager"),
 }
+
+enum class TaskPriority (val displayName: String, val color: Int){
+    HIGH(displayName = "High", Color.RED),
+    MEDIUM(displayName = "Medium", Color.BLUE),
+    LOW(displayName = "Low", Color.GREEN)
+}
+
