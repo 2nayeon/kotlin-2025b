@@ -33,7 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures { // ViewVinding 활성화
+
+    // https://developer.android.com/develop/ui/views/layout/recyclerview?hl=ko#kotlin
+
+    // pros : 1) 타입 안정성, 2) Null 안정성, 3) findViewByID 반복 제거, 4) 성능
+    // cons : 1) 빌드 시간 증가, 2) 바인딩 객체 생성 필요, 3) 학습 곡선
+    buildFeatures{  // ViewBinding Activate
         viewBinding = true
     }
 }
@@ -46,7 +51,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    implementation("androidx.recyclerview:recyclerview:1.4.0") // RecyclerView 사용하기 위해 해야하는 작업
+    implementation("androidx.recyclerview:recyclerview:1.4.0")  // RecyclerView
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
